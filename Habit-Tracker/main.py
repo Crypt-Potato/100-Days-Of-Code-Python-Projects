@@ -8,6 +8,7 @@ pixela_endpoint = "https://pixe.la/v1/users"
 
 USERNAME = os.environ["USERNAME"]
 TOKEN = os.environ["USER_TOKEN"]
+GRAPH_ID = "graph1"
 
 user_params = {
     "token": USERNAME,
@@ -22,7 +23,7 @@ user_params = {
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 graph_config = {
-    "id": "graph1",
+    "id": GRAPH_ID,
     "name": "Hours Coded Graph",
     "unit": "hours",
     "type": "float",
@@ -36,7 +37,7 @@ headers = {
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
-pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{graph_config['id']}"
+pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}}"
 
 pixel_creation_config = {
     "date": "".join(now.split()[0].split("-")),
