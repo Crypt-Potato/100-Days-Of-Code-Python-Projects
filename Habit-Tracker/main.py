@@ -1,5 +1,8 @@
 import requests
 import os
+from datetime import datetime
+
+now = str(datetime.now())
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
@@ -33,4 +36,16 @@ headers = {
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 # print(response.text)
 
-pixel_endpoint = f""
+pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{graph_config['id']}"
+
+pixel_creation_config = {
+    "date": "".join(now.split()[0].split("-")),
+    "quantity": "5"
+}
+
+pixel_creation_headers = {
+    "X-USER-TOKEN": TOKEN
+}
+
+response = requests.post(url=pixel_creation_endpoint, json=pixel_creation_config, headers=pixel_creation_headers)
+print(response.text)
