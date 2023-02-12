@@ -58,7 +58,7 @@ pixel_update_data = {
 response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
 while "Please retry this request" in response.text:
     response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
-print("Success")
+print("Successful")
 
 pixel_delete_endpoint = pixel_update_endpoint
 
