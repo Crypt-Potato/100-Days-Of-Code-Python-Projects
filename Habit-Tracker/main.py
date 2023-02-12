@@ -3,16 +3,6 @@ import os
 from datetime import datetime
 
 now = datetime.now()
-
-date_input = input("Please put the day that you did it. Format: <year> <month(number)> <day(number)>"
-                          "Input \"today\" to use today's date.")
-
-if date_input == "today":
-    date_to_put_pixel = now.strftime("%Y%m%d")
-else:
-    date_inputted = date_input.split()
-    date_to_put_pixel = datetime(year=int(date_inputted[0]), month=int(date_inputted[1]), day=int(date_inputted[2])).strftime("%Y%m%d")
-
 pixela_endpoint = "https://pixe.la/v1/users"
 
 USERNAME = os.environ["USERNAME"]
@@ -48,10 +38,29 @@ headers = {
 
 pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
+date_to_put_pixel = now.strftime("%Y%m%d")
+
 pixel_data = {
     "date": date_to_put_pixel,
-    "quantity": "5"
+    "quantity": "1"
+}
+# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+# while "Please retry this request" in response.text:
+#     response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+# print("Success")
+
+pixel_update_endpoint = f"{pixel_creation_endpoint}/{date_to_put_pixel}"
+
+pixel_update_data = {
+    "quantity": input("Input how much hours you want to add onto (put \"0\" if you don't want to.): ")
 }
 
-response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
-print(response.text)
+response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
+while "Please retry this request" in response.text:
+    response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
+print("Success")
+
+pixel_delete_endpoint = pixel_update_endpoint
+
+# response = requests.delete(url=pixel_delete_endpoint, headers=headers)
+# print(response.text)
