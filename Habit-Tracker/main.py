@@ -10,8 +10,8 @@ TOKEN = os.environ["USER_TOKEN"]
 GRAPH_ID = "graph1"
 
 user_params = {
-    "token": USERNAME,
-    "username": TOKEN,
+    "token": TOKEN,
+    "username": USERNAME,
     "agreeTermsOfService": "yes",
     "notMinor": "yes",
 }
@@ -42,23 +42,23 @@ date_to_put_pixel = now.strftime("%Y%m%d")
 
 pixel_data = {
     "date": date_to_put_pixel,
-    "quantity": "1"
+    "quantity": input("Input how many hours you coded today: ")
 }
-# response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
-# while "Please retry this request" in response.text:
-#     response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
-# print("Success")
+response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+while "Please retry this request" in response.text:
+    response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
+print("Success")
 
 pixel_update_endpoint = f"{pixel_creation_endpoint}/{date_to_put_pixel}"
 
 pixel_update_data = {
-    "quantity": input("Input how much hours you want to add onto (put \"0\" if you don't want to.): ")
+    "quantity": "5"
 }
 
-response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
-while "Please retry this request" in response.text:
-    response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
-print("Successful")
+# response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
+# while "Please retry this request" in response.text:
+#     response = requests.put(url=pixel_update_endpoint, json=pixel_update_data, headers=headers)
+# print("Successful")
 
 pixel_delete_endpoint = pixel_update_endpoint
 
