@@ -1,5 +1,5 @@
-import os
 import requests
+from main import SHEETY_AUTH_TOKEN, SHEETY_ENDPOINT
 from pprint import pprint
 
 
@@ -11,12 +11,11 @@ class DataManager:
         self.response = None
         self.update_data = None
         self.row_update_endpoint = None
-        self.sheety_endpoint = "https://api.sheety.co/31adb5f7f3220ad12ebade7128d63bc7/flightDeals/prices" # MAKE ENV
-        # VAR
+        self.sheety_endpoint = SHEETY_ENDPOINT
         
     def get_dest_data(self):
         self.authorization_headers = {
-            "Authorization": "Bearer %+9G+3#6T8&A0&)&n9xx$#+9650+5+o&o)%2Z(8!a"  # MAKE ENV VAR
+            "Authorization": SHEETY_AUTH_TOKEN
         }
         self.response = requests.get(url=self.sheety_endpoint, headers=self.authorization_headers)
         self.data = self.response.json()['prices']

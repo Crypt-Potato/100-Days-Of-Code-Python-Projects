@@ -1,6 +1,12 @@
 from data_manager import DataManager
 from flight_search import FlightSearch
 from datetime import datetime, timedelta
+import os
+
+# Loading Environment Variables
+TEQUILA_KEY = os.environ["TEQUILA_KEY"]
+SHEETY_AUTH_TOKEN = os.environ["SHEETY_AUTH_TOKEN"]
+SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
 
 data_manager = DataManager()
 flight_search = FlightSearch()
