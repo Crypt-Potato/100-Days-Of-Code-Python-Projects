@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flight_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/flight_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/notification_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MN2xrXyU2pIRjIZqxzQh41dygJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -29,7 +31,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shahn/Pycharm Code/Birthday-Wisher&quot;
   }
 }</component>
   <component name="RunManager">
@@ -40,8 +43,10 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="SHEETY_AUTH_TOKEN" value="Bearer %+9G+3#6T8&amp;A0&amp;)&amp;n9xx$#+9650+5+o&amp;o)%2Z(8!a" />
-        <env name="TEQUILA_KEY" value="806l26JLRIFpY1Z52NoyhFo_zzcj3YcS" />
         <env name="SHEETY_ENDPOINT" value="https://api.sheety.co/31adb5f7f3220ad12ebade7128d63bc7/flightDeals/prices" />
+        <env name="TEQUILA_KEY" value="806l26JLRIFpY1Z52NoyhFo_zzcj3YcS" />
+        <env name="EMAIL" value="yugsha28@gmail.com" />
+        <env name="EMAIL_APP_PASSWORD" value="hdkygelippbgfbgu" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />

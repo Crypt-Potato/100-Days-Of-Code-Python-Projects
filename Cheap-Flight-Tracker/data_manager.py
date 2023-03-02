@@ -1,7 +1,8 @@
 import requests
-from main import SHEETY_AUTH_TOKEN, SHEETY_ENDPOINT
-from pprint import pprint
+import os
 
+SHEETY_AUTH_TOKEN = os.environ["SHEETY_AUTH_TOKEN"]
+SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
 
 class DataManager:
 
@@ -18,7 +19,11 @@ class DataManager:
             "Authorization": SHEETY_AUTH_TOKEN
         }
         self.response = requests.get(url=self.sheety_endpoint, headers=self.authorization_headers)
-        self.data = self.response.json()['prices']
+        try:
+            self.data = self.response.json()['prices']
+        except KeyError:
+            print("Sorry, the sheety API is not available for the rest of the month. Please try again next month.")
+            return None
         return self.data
 
     def update_rows(self):

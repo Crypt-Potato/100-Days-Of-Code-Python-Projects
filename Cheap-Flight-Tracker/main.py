@@ -1,15 +1,12 @@
+import os
 from data_manager import DataManager
 from flight_search import FlightSearch
+from notification_manager import NotificationManager
 from datetime import datetime, timedelta
-import os
-
-# Loading Environment Variables
-TEQUILA_KEY = os.environ["TEQUILA_KEY"]
-SHEETY_AUTH_TOKEN = os.environ["SHEETY_AUTH_TOKEN"]
-SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
 
 data_manager = DataManager()
 flight_search = FlightSearch()
+notification_manager = NotificationManager()
 sheet_data = data_manager.get_dest_data()
 is_iata_code = None
 
@@ -38,3 +35,5 @@ for dest in sheet_data:
         from_time=tomorrow,
         to_time=six_months_from_now
     )
+
+    notification_manager.send_notification(flight, dest)
