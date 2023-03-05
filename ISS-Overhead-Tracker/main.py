@@ -4,8 +4,8 @@ import smtplib
 import os
 from datetime import datetime
 
-MY_LAT = 45.3423  # Your latitude
-MY_LONG = -59.435354  # Your longitude
+MY_LAT = -58.3294
+MY_LONG = -29.4239925
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()

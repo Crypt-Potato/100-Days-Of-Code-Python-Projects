@@ -4,6 +4,7 @@ import os
 SHEETY_AUTH_TOKEN = os.environ["SHEETY_AUTH_TOKEN"]
 SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
 
+
 class DataManager:
 
     def __init__(self):
@@ -13,7 +14,7 @@ class DataManager:
         self.update_data = None
         self.row_update_endpoint = None
         self.sheety_endpoint = SHEETY_ENDPOINT
-        
+
     def get_dest_data(self):
         self.authorization_headers = {
             "Authorization": SHEETY_AUTH_TOKEN

@@ -5,6 +5,7 @@ import requests
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
 TEQUILA_KEY = os.environ["TEQUILA_KEY"]
 
+
 class FlightSearch:
 
     def __init__(self):

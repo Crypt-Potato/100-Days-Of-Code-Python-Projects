@@ -12,8 +12,8 @@
 import requests
 from datetime import datetime
 
-MY_LAT = 40.983644
-MY_LONG = -74.158496
+MY_LAT = 67.67868768678
+MY_LONG = -12.3435435
 
 parameters = {
     "lat": MY_LAT,

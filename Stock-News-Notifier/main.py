@@ -6,7 +6,7 @@ import os
 STOCK = "AMZN"
 COMPANY_NAME = "Amazon.com, Inc"
 
-alphavantage_api_key = os.environ.get("APLHAVANTAGE_API_KEY")
+alphavantage_api_key = os.environ["ALPHAVANTAGE_API_KEY"]
 
 alphavantage_parameters = {
     "function": "TIME_SERIES_DAILY_ADJUSTED",
@@ -31,7 +31,7 @@ price_difference = ((lbd_close / day_before_lbd_close) - 1) * 100
 if abs(price_difference) > 5:
     newsapi_parameters = {
         "q": COMPANY_NAME,
-        "apiKey": os.environ.get("NEWS_API_KEY")
+        "apiKey": os.environ["NEWS_API_KEY"]
     }
 
     news_response = requests.get(url="https://newsapi.org/v2/everything", params=newsapi_parameters)
